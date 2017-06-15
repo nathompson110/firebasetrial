@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Practicing</title>
+</head>
+<body>
+<h3 id="username"> The username is: </h3>
+<input id="usernameInput">
+<button id="saveUserName">Save</button>
+<script src="https://www.gstatic.com/firebasejs/4.1.2/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCg5lWv51vEXWTbzrZ3GTz3ubLVkaG4Awk",
+    authDomain: "nathompson110db.firebaseapp.com",
+    databaseURL: "https://nathompson110db.firebaseio.com",
+    projectId: "nathompson110db",
+    storageBucket: "nathompson110db.appspot.com",
+    messagingSenderId: "363059828829"
+  };
+
+  //intialize the database
+  firebase.initializeApp(config);
+
+//variable that contains a reference to the database.
+  var database = firebase.database();
+  console.log(database);
+
+  document.getElementById('saveUserName').onclick = function (){
+  	var username= document.getElementById("usernameInput").value;
+  	console.log("making sure this works: " + username);
+
+  	database.ref(/*the location*/).set({
+  		username:username
+  	})
+  }
+</script>
+
+</body>
+</html>
